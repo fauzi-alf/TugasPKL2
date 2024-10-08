@@ -2,7 +2,7 @@
 @section('main-content')
 <div class="container">
     <h2>
-        Laravel 11 CRUD with upload image
+        Laravel 11 CRUD 
     </h2>
     <div class="text-end mb-5">
         <a href="{{ route('user.create') }}" class="btn btn-primary">Add New User</a>
