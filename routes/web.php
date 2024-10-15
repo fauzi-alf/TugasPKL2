@@ -2,17 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.login_form');
 });
-
-Route::get('/admin', [UserController::class, 'index'])->name('user.index');
- 
-Route::group(['prefix' => 'admin/user'], function () {
-    Route::get('/create', [UserController::class, 'create'])->name('user.create');
-    Route::post('/add', [UserController::class, 'store'])->name('user.store');
-    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-    Route::post('/update/{id}', [UserController::class, 'update'])->name('user.update');
-    Route::post('/delete', [UserController::class, 'destroy'])->name('user.delete');
-});
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+Route::get('/login',[LoginController::class,'halamanlogin']);
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+Route::post('/postlogin',[LoginController::class,'postlogin'])->name('postlogin');
